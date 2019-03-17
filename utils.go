@@ -16,3 +16,9 @@ func Fibonacci(n int) int {
 	}
 	return Fibonacci(n-1) + Fibonacci(n-2)
 }
+
+// FibonacciChannel is a naive recursive implementation of the fibonacci algorithm
+func FibonacciChannel(worker int, n int, c chan int) {
+	result := Fibonacci(n)
+	c <- result
+}
