@@ -1,4 +1,4 @@
-interface FibCalcJob {
+interface FibCalcJobResult {
   id: number;
   value: number;
   result: number;
@@ -17,7 +17,7 @@ const randInt = (min: number, max: number): number => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
-const calcFib = async (id: number, value: number): Promise<FibCalcJob> => {
+const calcFib = async (id: number, value: number): Promise<FibCalcJobResult> => {
   const result = fib(value);
   return { id: id, value: value, result: result };
 };

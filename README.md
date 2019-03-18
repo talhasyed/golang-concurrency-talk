@@ -364,8 +364,8 @@ Enough of the teasing; let's get it right this time!
 [.code-highlight: all]
 
 ```golang
-// FibCalcJob respresents a job to calculate the Fib number of the value
-type FibCalcJob struct {
+// FibCalcJobResult respresents a job to calculate the Fib number of the value
+type FibCalcJobResult struct {
 	id     int
 	value  int
 	result int
@@ -375,7 +375,7 @@ func calcFibBlockingChannels() {
 	rand.Seed(time.Now().UnixNano())
 	NumCalcs := 20
 
-	c := make(chan FibCalcJob, 20)
+	c := make(chan FibCalcJobResult, 20)
 
 	for i := 0; i < NumCalcs; i++ {
 		n := randInt(39, 41)

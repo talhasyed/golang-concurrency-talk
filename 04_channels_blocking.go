@@ -10,7 +10,7 @@ func calcFibBlockingChannels() {
 	rand.Seed(time.Now().UnixNano())
 	NumCalcs := 20
 
-	c := make(chan FibCalcJob, 20)
+	c := make(chan FibCalcJobResult, 20)
 
 	for i := 0; i < NumCalcs; i++ {
 		n := randInt(39, 41)
