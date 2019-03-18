@@ -256,18 +256,18 @@ By default, sends and receives block until the other side is ready. This allows 
 
 ```golang
 // creating a channel
-c := make(chan int) // make(chan int, 20)
+c := make(chan int)
 
 // channel aware function
-go calculate(n int, c chan int) {
+func calculate(n int, c chan int) {
 	// value := ...
 	c <- value
 }
 
 // invoking the channel aware function and
 // receiving values from it
-result := cauculate(n, c)
-c <- result
+go calculate(n, c)
+result := <- c
 ```
 
 ---
