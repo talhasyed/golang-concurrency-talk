@@ -17,8 +17,13 @@ const randInt = (min: number, max: number): number => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
-const calcFib = async (id: number, value: number): Promise<FibCalcJobResult> => {
+const calcFib = async (
+  id: number,
+  value: number
+): Promise<FibCalcJobResult> => {
   const result = fib(value);
+  console.log(`[${id}] \tfib(${value}) \t${result}`);
+
   return { id: id, value: value, result: result };
 };
 
@@ -32,9 +37,6 @@ async function main() {
   );
 
   const results = await Promise.all(fibCalcJobs);
-  results.forEach(result =>
-    console.log(`[${result.id}] \tfib(${result.value}) \t${result.result}`)
-  );
 
   console.timeEnd("calculateFibs");
 }
